@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Laxman Lokare — Portfolio
 
-## Getting Started
+A responsive personal portfolio built with Next.js.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Configure the public website URL
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Set `NEXT_PUBLIC_SITE_URL` to the canonical HTTPS URL for the deployed website. This value is used for canonical metadata, absolute social-sharing image URLs, and the sitemap:
 
-## Learn More
+```env
+NEXT_PUBLIC_SITE_URL=https://your-real-domain.com
+```
 
-To learn more about Next.js, take a look at the following resources:
+For local development, add this setting to `.env.local`. Configure the same variable in the deployment provider before building for production. Without a public URL, the canonical tag and sitemap entry are omitted; the metadata base falls back to localhost.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Portfolio details
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Update the project placeholders and contact details in `app/page.tsx`. The contact form prepares an email draft and needs a real address in `contactEmail` before it can be used.
 
-## Deploy on Vercel
+## SEO included
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Page title, description, keywords, author, and robots metadata
+- Open Graph and Twitter card metadata with a generated share image
+- Person structured data (JSON-LD)
+- `robots.txt` and a sitemap based on `NEXT_PUBLIC_SITE_URL`
+- A portfolio-branded favicon
